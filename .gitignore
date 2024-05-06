@@ -15,12 +15,3 @@ build/*
 _site/
 *.css
 !petclinic.css
-.github
-.devcontainer
-.gitpod.yml
-gradle
-build.gradle
-gradlew
-gradlew.bat
-settings.gradle
-.gradle
