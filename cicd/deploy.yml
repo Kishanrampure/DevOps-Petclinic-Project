@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  petclinicdeployment
+  labels:
+    type: backend
+    app: petclinic
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      type: backend
+      app: petclinic
+  template:
+    metadata:
+      name: petclinicpod
+      labels:
+        type: backend
+        app: petclinic
+    spec:
+      containers:
+        - name: nodecontainer
+          image: kishanrampure/petclinic:v06052024
+          ports:
+            - containerPort: 8080

@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: petclinic-load-service
+spec:
+  ports:
+    - port: 8080 
+      targetPort: 8080
+  selector:
+    type: backend
+    app: petclinic  
+  type: LoadBalancer
