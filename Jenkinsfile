@@ -102,7 +102,7 @@ pipeline {
           steps {
                 sh 'chmod +x mvnw'
                 sh 'chmod +x ./mvnw'
-                sh 'docker build -f cicd/Dockerfile -t kishanrampure/petclinic:v37052024 .'
+                sh 'docker build -t kishanrampure/petclinic:v37052024 .'
             }
         }
         stage('Docker Image Test'){
