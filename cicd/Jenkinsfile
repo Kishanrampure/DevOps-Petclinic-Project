@@ -18,9 +18,9 @@ pipeline {
             git branch: 'sc-staging', url: 'https://github.com/Kishanrampure/DevOps-Petclinic-Project.git'
             }
         }
-        stage('Maven Compile') {
+        stage('Maven Package') {
         steps {
-                sh 'mvn clean compile'
+                sh 'mvn clean package'
             }
         }
         stage('Unit Test'){
