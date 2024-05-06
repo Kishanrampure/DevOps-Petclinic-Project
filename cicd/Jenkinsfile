@@ -83,9 +83,9 @@ pipeline {
             git branch: 'deployment', url: 'https://github.com/Kishanrampure/DevOps-Petclinic-Project.git'
             }
         }
-        stage('Maven Install'){
+        stage('Maven Package'){
         steps{
-              sh "mvn clean install"
+              sh "mvn package"
              }
         }
          stage('Docker Build') {
