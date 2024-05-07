@@ -1,10 +1,7 @@
 
 services:
   petclinic:
-    build:
-      context: .
-      dockerfile: Dockerfile.multi
-      target: development
+    image: jsgiraldoh/spring-petclinic-docker
     ports:
       - 8000:8000
       - 8080:8080
