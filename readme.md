@@ -295,10 +295,13 @@ Modify build timestamp formatting
     # login with admin user and below token (as in documentation):
     kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 --decode && echo
 
-    ```sh
-    gcloud container clusters get-credentials <CLUSTER_NAME> --zone <ZONE> --project <PROJECT_ID>
-    ```
-- [x] Create the deployment.
+# Steps
+- [x] Create a kubernetes cluster on GKE || EKS.
+- [x] Setup Connection to created GKE || EKS cluster in with your local machine or cloud shell.
+- [x] Authenticate to GCR || EKS
+- [x] Push docker image to GCR || ECR
+
+- [x] Apply manifest file to create deployment.
     ```sh
     kubectl apply -f deploy.yml
     ```
@@ -306,18 +309,15 @@ Modify build timestamp formatting
     ```sh
     kubectl get deploy
     ```
-- [x] Create Load Balancer Service
+- [x] Apply manifest file to create load balancer service.
     ```sh
-    kkubectl apply -f service.yml
+    kubectl apply -f service.yml
     ```
 - [x] Check status of service.
     ```sh
     kubectl get svc
     ```
-- [x] Check the external IP of the service.
-
-- [x] Verify and test the deployed application for functionality.
-
+- [x] Check the external IP of the service in the browser.
 
 ### Cleanup
 ```sh
