@@ -38,7 +38,7 @@ pipeline {
           }
         }
       }
-        stage('Git Push to main') {
+        stage('Git Push to GCP') {
 	  environment {
                 commitmsg = "'codeChanges'"
             }
@@ -49,11 +49,11 @@ pipeline {
                     ] ) {
                     sh '''
                     git add .
-                    git branch -M main
+                    git branch -M GCP
 		            git remote -v
                     git status
 		            git commit -a -m ${commitmsg}
-                    git push -u origin main --force
+                    git push -u origin GCP --force
                     '''
                     }
                 }
