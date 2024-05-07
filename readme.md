@@ -4,7 +4,9 @@
 Implementing a DevOps CI/CD pipeline for the Sample Petclinic Application in a production level environment.
 
 Understanding the Petclinic application with a few diagrams
-![Boardgame](https://github.com/Kishanrampure/DevOps-Boardgame-Project/assets/121344253/66cfd230-ea6f-4b2a-aa9d-b8145ea59c2c)
+
+![Petclinic dashboard](https://github.com/Kishanrampure/DevOps-Petclinic-Project/assets/121344253/93f301b0-04a8-45c8-a8d7-bda71d8a541d)
+
 
 
 ## Prerequisites
