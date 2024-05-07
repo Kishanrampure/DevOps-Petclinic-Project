@@ -17,12 +17,12 @@ pipeline {
           steps {
                 sh 'chmod +x mvnw'
                 sh 'chmod +x ./mvnw'
-                sh 'docker build -t kishanrampure/petclinic:v57052024 .'
+                sh 'docker build -t kishanrampure/petclinic:v67052024 .'
             }
         }
         stage('Docker Image Test'){
         steps {
-                sh 'trivy image kishanrampure/petclinic:v57052024'
+                sh 'trivy image kishanrampure/petclinic:v67052024'
             }
         }
         stage('Trivy FS Check CD') {
@@ -34,7 +34,7 @@ pipeline {
         steps {
           withCredentials([usernamePassword(credentialsId: 'docker-cred', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
              sh 'docker login -u $USERNAME -p $PASSWORD'
-             sh 'docker push kishanrampure/petclinic:v57052024'
+             sh 'docker push kishanrampure/petclinic:v67052024'
           }
         }
       }
