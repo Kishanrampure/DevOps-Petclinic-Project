@@ -295,9 +295,7 @@ Modify build timestamp formatting
     # login with admin user and below token (as in documentation):
     kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 --decode && echo
 
-# Steps
-- [x] Create a kubernetes cluster on GKE || EKS.
-- [x] Setup Connection to created GKE || EKS cluster in with your local machine or cloud shell.
+
 - [x] Authenticate to GCR || EKS
 - [x] Push docker image to GCR || ECR
 
