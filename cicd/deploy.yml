@@ -20,6 +20,6 @@ spec:
     spec:
       containers:
         - name: nodecontainer
-          image: kishanrampure/petclinic:v47052024
+          image: kishanrampure/petclinic:v57052024
           ports:
             - containerPort: 8080

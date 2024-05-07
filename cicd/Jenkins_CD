@@ -7,35 +7,25 @@ pipeline {
     options {
         skipStagesAfterUnstable()
     }
-    stages {
-        stage('Git Init') {
+    stages{
+        stage('SCM Fetch From deployment') {
         steps{
-            sh 'git init'
+            git branch: 'deployment', url: 'https://github.com/Kishanrampure/DevOps-Petclinic-Project.git'
             }
-        }
-        stage('SCM Fetch') {
-        steps{
-            git branch: 'sc-staging', url: 'https://github.com/Kishanrampure/DevOps-Petclinic-Project.git'
-            }
-        }
-        stage('Maven Install'){
-        steps{
-              sh "mvn clean install"
-             }
         }
          stage('Docker Build') {
           steps {
                 sh 'chmod +x mvnw'
                 sh 'chmod +x ./mvnw'
-                sh 'docker build -t kishanrampure/petclinic:v${BUILD_TIMESTAMP} .'
+                sh 'docker build -t kishanrampure/petclinic:v57052024 .'
             }
         }
         stage('Docker Image Test'){
         steps {
-                sh 'trivy image kishanrampure/petclinic:v${BUILD_TIMESTAMP}'
+                sh 'trivy image kishanrampure/petclinic:v57052024'
             }
         }
-        stage('Trivy FS Check') {
+        stage('Trivy FS Check CD') {
         steps {
                 sh "trivy fs ."
             }
@@ -44,13 +34,13 @@ pipeline {
         steps {
           withCredentials([usernamePassword(credentialsId: 'docker-cred', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
              sh 'docker login -u $USERNAME -p $PASSWORD'
-             sh 'docker push kishanrampure/petclinic:v${BUILD_TIMESTAMP}'
+             sh 'docker push kishanrampure/petclinic:v57052024'
           }
         }
       }
-        stage('Git Push to deployment') {
+        stage('Git Push to main') {
 	  environment {
-                commitmsg = "'codeChangesSC'"
+                commitmsg = "'codeChanges'"
             }
         steps {
 	       script{
@@ -59,15 +49,15 @@ pipeline {
                     ] ) {
                     sh '''
                     git add .
-                    git branch -M deployment
-		    git remote -v
+                    git branch -M main
+		            git remote -v
                     git status
-		    git commit -a -m ${commitmsg}
-                    git push -u origin deployment --force
+		            git commit -a -m ${commitmsg}
+                    git push -u origin main --force
                     '''
-                  } 
-	       }
-            }
+                    }
+                }
+            } 
         }
-    } 
-}
+    }
+} 
