@@ -8,7 +8,6 @@ Understanding the Petclinic application with a few diagrams
 ![Petclinic dashboard](https://github.com/Kishanrampure/DevOps-Petclinic-Project/assets/121344253/93f301b0-04a8-45c8-a8d7-bda71d8a541d)
 
 
-
 ## Prerequisites
 - Install JKD 17
 - Install Jenkins
