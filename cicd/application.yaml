@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/Kishanrampure/DevOps-Petclinic-Project.git
     targetRevision: HEAD
-    path: .
+    path: cicd
   destination: 
     server: https://kubernetes.default.svc
     namespace: petclinic
