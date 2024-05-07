@@ -296,7 +296,7 @@ Modify build timestamp formatting
     kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 --decode && echo
 
 
-- [x] Authenticate to GCR || EKS
+- [x] Authenticate to GCR || ECR
 - [x] Push docker image to GCR || ECR
 
 - [x] Apply manifest file to create deployment.
