@@ -5,7 +5,7 @@ Implementing a DevOps CI/CD pipeline for the Sample Petclinic Application in a p
 
 Understanding the Petclinic application with a few diagrams
 
-
+![Petclinic dashboard](https://github.com/Kishanrampure/DevOps-Petclinic-Project/assets/121344253/2cd46529-ef4e-4166-ad1e-952405c68e05)
 
 
 ## Prerequisites
