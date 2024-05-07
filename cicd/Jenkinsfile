@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Maven Compile') {
         steps {
-                sh 'mvn clean compile'
+                sh 'mvn clean compile -U'
             }
         }
         stage('Unit Test'){
